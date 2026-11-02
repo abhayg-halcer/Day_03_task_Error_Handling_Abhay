@@ -88,3 +88,21 @@
 ## Conclusion
 
 Successfully completed the Python Data Toolkit assignment. The application supports CSV loading, data validation, sales analysis, structured logging, and automated testing. All 26 tests passed with 96.41% code coverage.
+
+---
+
+## 8. Submission checklist
+
+- [x] Source code committed to Git with a meaningful commit message.
+- [x] Tests and experiment results saved in `results/test_results.txt`, including actual test output.
+- [x] README includes setup and usage instructions. Assumptions and limitations are documented above.
+- [x] Test results included to verify behavior. Screenshots are not included because the saved test output provides verification; runtime logs are generated in `logs/`.
+- [x] Developer can explain the implementation, including CSV loading, validation, custom exceptions, analytics, logging, CLI, and testing.
+
+### Submission evidence
+
+- **Test result:** 26 passed, 0 failed.
+- **Code coverage:** 96.41%.
+- **Coverage requirement:** 80%.
+- **Git branch:** `main`.
+- **Previous report commit:** `3f49fbc`.
