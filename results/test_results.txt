@@ -1,0 +1,81 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/apple/Downloads/Day_3_task_abhay/python_data_toolkit/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/apple/Downloads/Day_3_task_abhay/python_data_toolkit
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-7.1.0
+collecting ... collected 26 items
+
+tests/test_analytics.py::test_generate_summary PASSED                    [  3%]
+tests/test_analytics.py::test_empty_summary PASSED                       [  7%]
+tests/test_cli.py::test_cli_success PASSED                               [ 11%]
+tests/test_cli.py::test_cli_handles_processing_error PASSED              [ 15%]
+tests/test_loader.py::test_load_valid_csv PASSED                         [ 19%]
+tests/test_loader.py::test_missing_file PASSED                           [ 23%]
+tests/test_loader.py::test_invalid_csv[name,amount\nLaptop,500\n-SchemaValidationError] PASSED [ 26%]
+tests/test_loader.py::test_invalid_csv[product,quantity,price\nLaptop,abc,500\n-DataValidationError] PASSED [ 30%]
+tests/test_loader.py::test_invalid_csv[product,quantity,price\nLaptop,2,-5\n-DataValidationError] PASSED [ 34%]
+tests/test_loader.py::test_invalid_csv[product,quantity,price\nLaptop,0,500\n-DataValidationError] PASSED [ 38%]
+tests/test_loader.py::test_invalid_csv[product,quantity,price\n,2,500\n-DataValidationError] PASSED [ 42%]
+tests/test_loader.py::test_directory_path_is_rejected PASSED             [ 46%]
+tests/test_loader.py::test_csv_with_extra_value_is_rejected PASSED       [ 50%]
+tests/test_loader.py::test_csv_with_missing_value_is_rejected PASSED     [ 53%]
+tests/test_loader.py::test_invalid_utf8_file_is_rejected PASSED          [ 57%]
+tests/test_loader.py::test_csv_parser_error_is_handled PASSED            [ 61%]
+tests/test_loader.py::test_permission_error_is_handled PASSED            [ 65%]
+tests/test_loader.py::test_filesystem_error_is_handled PASSED            [ 69%]
+tests/test_logging_config.py::test_configure_logging_writes_to_file PASSED [ 73%]
+tests/test_validator.py::test_valid_columns PASSED                       [ 76%]
+tests/test_validator.py::test_missing_columns PASSED                     [ 80%]
+tests/test_validator.py::test_invalid_rows[row0] PASSED                  [ 84%]
+tests/test_validator.py::test_invalid_rows[row1] PASSED                  [ 88%]
+tests/test_validator.py::test_invalid_rows[row2] PASSED                  [ 92%]
+tests/test_validator.py::test_invalid_rows[row3] PASSED                  [ 96%]
+tests/test_validator.py::test_invalid_rows[row4] PASSED                  [100%]
+
+============================== 26 passed in 0.04s ==============================
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: /Users/apple/Downloads/Day_3_task_abhay/python_data_toolkit
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-7.1.0
+collected 26 items
+
+tests/test_analytics.py ..                                               [  7%]
+tests/test_cli.py ..                                                     [ 15%]
+tests/test_loader.py ..............                                      [ 69%]
+tests/test_logging_config.py .                                           [ 73%]
+tests/test_validator.py .......                                          [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.15.2-final-0 _______________
+
+Name                                       Stmts   Miss Branch BrPart  Cover   Missing
+--------------------------------------------------------------------------------------
+src/data_toolkit/__init__.py                   1      0      0      0   100%
+src/data_toolkit/analytics/__init__.py         0      0      0      0   100%
+src/data_toolkit/analytics/summary.py         11      0      4      0   100%
+src/data_toolkit/cli.py                       29      1      4      1    94%   49
+src/data_toolkit/config/__init__.py            0      0      0      0   100%
+src/data_toolkit/config/settings.py            5      0      0      0   100%
+src/data_toolkit/exceptions.py                 5      0      0      0   100%
+src/data_toolkit/logging_config.py             5      0      0      0   100%
+src/data_toolkit/models/__init__.py            0      0      0      0   100%
+src/data_toolkit/models/record.py              6      0      0      0   100%
+src/data_toolkit/processing/__init__.py        0      0      0      0   100%
+src/data_toolkit/processing/loader.py         44      0     10      0   100%
+src/data_toolkit/processing/validator.py      31      3     12      1    91%   12, 49-50
+--------------------------------------------------------------------------------------
+TOTAL                                        137      4     30      2    96%
+Required test coverage of 80.0% reached. Total coverage: 96.41%
+============================== 26 passed in 0.07s ==============================
+
+SALES SUMMARY
+------------------------------
+Total Records: 3
+Total Quantity: 10
+Total Sales: 1235.0
+Average Sale: 411.67
+Best Selling Product: Mouse
