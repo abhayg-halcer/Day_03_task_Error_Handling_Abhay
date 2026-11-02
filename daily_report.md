@@ -4,7 +4,7 @@
 **Assignment:** A Python CLI application for loading, validating, and analyzing sales CSV files.  
 **Date:** 2026-11-02  
 **Repository URL:** https://github.com/abhayg-halcer/Day_03_task_Error_Handling_Abhay  
-**Latest commit hash (before this report update):** `3f49fbc`  
+**Latest commit hash (before this report update):** `40da0e8`  
 **Pull Request:** N/A — no pull request created
 
 ---
