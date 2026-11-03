@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "python-data-toolkit"
 version = "1.0.0"
-description = "A reliable CSV sales data processing toolkit"
+description = "A testable and diagnosable customer support ticket data pipeline"
 requires-python = ">=3.10"
 dependencies = []
 

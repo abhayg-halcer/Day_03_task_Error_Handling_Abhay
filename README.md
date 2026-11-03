@@ -1,44 +1,61 @@
-# Python Data Toolkit
+# Customer Support Ticket Data Pipeline
 
-A Python CLI application for loading, validating, and analyzing sales CSV files.
+A modular Python CLI application for loading, validating, cleaning, and analyzing customer support ticket CSV data.
+
+## Features
+- CSV loading with file and schema error handling.
+- Duplicate normalized header detection.
+- Ticket validation and data-quality reporting.
+- Duplicate ticket ID detection.
+- Optional customer rating normalization.
+- Ticket analytics and SLA breach analysis.
+- CSV report generation, structured exceptions, and application logging.
 
 ## Setup
-python -m venv .venv
+Requires Python 3.10 or newer.
+```bash
+python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e ".[dev]"
+python3 -m pip install -e ".[dev]"
+```
 
 ## Usage
-python -m data_toolkit.cli tests/fixtures/sample_sales.csv
+```bash
+python3 -m data_toolkit.cli data/tickets.csv --output-dir outputs
+```
 
-## Tests
-python -m pytest -v
-python -m pytest --cov=data_toolkit --cov-report=term-missing
+## Ticket CSV Schema
+`ticket_id`, `customer_id`, `category`, `priority`, `status`, `created_at`, `resolution_time_hours`, `customer_rating`, `description`
 
 ## Validation Rules
-- Required columns: product, quantity, price
-- Product name must not be empty.
-- Quantity must be a positive integer.
-- Price must be non-negative and finite.
+- Ticket and customer IDs must be present.
+- Category, priority, and status must use supported values.
+- Creation dates must be valid datetimes.
+- Resolution time must be numeric and non-negative.
+- Resolved and closed tickets require a resolution time.
+- Open and in-progress tickets must not have a resolution time.
+- Customer ratings are optional; invalid ratings are normalized and reported.
+- The first occurrence of a duplicate ticket ID is retained.
+- Duplicate CSV headers after trimming and case normalization are rejected.
+
+## SLA Thresholds
+| Priority | Resolution target |
+|---|---:|
+| Critical | 4 hours |
+| High | 8 hours |
+| Medium | 24 hours |
+| Low | 72 hours |
+
+## Generated Reports
+- `data_quality_report.csv`
+- `summary_metrics.csv`
+- `sla_breach_by_priority.csv`
 
 ## Logging
-Application logs are written to logs/app.log.
+Application logs are written to `logs/app.log`.
 
-## Test Results
-The current test suite contains 26 passing tests and achieves 96.41% coverage.
-
-## Assumptions
-
-- Input data is provided as a CSV file.
-- The CSV file contains the required columns: `product`, `quantity`, and `price`.
-- Product names must not be empty.
-- Quantity must be a positive integer.
-- Price must be a non-negative finite number.
-- CSV input is expected to use UTF-8 encoding.
-
-## Limitations
-
-- The application currently processes CSV files only.
-- It does not connect to a database or external sales API.
-- The application validates the supplied records but does not automatically correct invalid data.
-- Sales totals are calculated from the supplied prices; no currency conversion is performed.
-- The application is designed as a command-line tool rather than a graphical application.
+## Tests
+```bash
+python3 -m pytest -v
+python3 -m pytest --cov=data_toolkit --cov-report=term-missing
+```

@@ -7,3 +7,15 @@ REQUIRED_COLUMNS: tuple[str, ...] = ("product", "quantity", "price")
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_LOG_DIR = PROJECT_ROOT / "logs"
 DEFAULT_LOG_FILE = DEFAULT_LOG_DIR / "app.log"
+
+TICKET_REQUIRED_COLUMNS: tuple[str, ...] = (
+    "ticket_id",
+    "customer_id",
+    "category",
+    "priority",
+    "status",
+    "created_at",
+    "resolution_time_hours",
+    "customer_rating",
+    "description",
+)

@@ -1,0 +1,41 @@
+ticket_id,customer_id,category,priority,status,created_at,resolution_time_hours,customer_rating,description
+TKT001,C001,Billing,Low,Open,2026-10-01T10:00:00,,,Synthetic support ticket number 1
+TKT002,C002,Technical,Low,Open,2026-10-02T10:00:00,,2,Synthetic support ticket number 2
+TKT003,C003,Account,Low,Open,2026-10-03T10:00:00,,3,Synthetic support ticket number 3
+TKT004,C004,Delivery,Low,Open,2026-10-04T10:00:00,,4,Synthetic support ticket number 4
+TKT005,C005,Product,Low,Open,2026-10-05T10:00:00,,5,Synthetic support ticket number 5
+TKT006,C006,Billing,Low,Open,2026-10-06T10:00:00,,1,Synthetic support ticket number 6
+TKT007,C007,Technical,Low,Open,2026-10-07T10:00:00,,2,Synthetic support ticket number 7
+TKT008,C008,Account,Low,Open,2026-10-08T10:00:00,,,Synthetic support ticket number 8
+TKT009,C009,Delivery,Low,Open,2026-10-09T10:00:00,,4,Synthetic support ticket number 9
+TKT010,C010,Product,Low,Open,2026-10-10T10:00:00,,5,Synthetic support ticket number 10
+TKT011,C011,Billing,Medium,In Progress,2026-10-11T10:00:00,,1,Synthetic support ticket number 11
+TKT012,C012,Technical,Medium,In Progress,2026-10-12T10:00:00,,2,Synthetic support ticket number 12
+TKT013,C013,Account,Medium,In Progress,2026-10-13T10:00:00,,3,Synthetic support ticket number 13
+TKT014,C014,Delivery,Medium,In Progress,2026-10-14T10:00:00,,4,Synthetic support ticket number 14
+TKT015,C015,Product,Medium,In Progress,2026-10-15T10:00:00,,,Synthetic support ticket number 15
+TKT016,C016,Billing,Medium,In Progress,2026-10-16T10:00:00,,1,Synthetic support ticket number 16
+TKT017,C017,Technical,Medium,In Progress,2026-10-17T10:00:00,,2,Synthetic support ticket number 17
+TKT018,C018,Account,Medium,In Progress,2026-10-18T10:00:00,,3,Synthetic support ticket number 18
+TKT019,C019,Delivery,Medium,In Progress,2026-10-19T10:00:00,,4,Synthetic support ticket number 19
+TKT020,C020,Product,Medium,In Progress,2026-10-20T10:00:00,,5,Synthetic support ticket number 20
+TKT021,C021,Billing,High,Resolved,2026-10-21T10:00:00,10,1,Synthetic support ticket number 21
+TKT022,C022,Technical,High,Resolved,2026-10-22T10:00:00,11,,Synthetic support ticket number 22
+TKT023,C023,Account,High,Resolved,2026-10-23T10:00:00,12,3,Synthetic support ticket number 23
+TKT024,C024,Delivery,High,Resolved,2026-10-24T10:00:00,13,4,Synthetic support ticket number 24
+TKT025,C025,Product,High,Resolved,2026-10-25T10:00:00,2,5,Synthetic support ticket number 25
+TKT026,C026,Billing,High,Resolved,2026-10-26T10:00:00,3,1,Synthetic support ticket number 26
+TKT027,C027,Technical,High,Resolved,2026-10-27T10:00:00,4,2,Synthetic support ticket number 27
+TKT028,C028,Account,High,Resolved,2026-10-28T10:00:00,5,3,Synthetic support ticket number 28
+TKT029,C029,Delivery,High,Resolved,2026-10-01T10:00:00,6,,Synthetic support ticket number 29
+TKT030,C030,Product,High,Resolved,2026-10-02T10:00:00,7,5,Synthetic support ticket number 30
+,C031,Billing,Critical,Resolved,2026-10-03T10:00:00,8,1,Synthetic support ticket number 31
+TKT032,C032,Technical,Critical,Resolved,2026-10-04T10:00:00,9,2,Synthetic support ticket number 32
+TKT033,C033,Account,Critical,Resolved,2026-10-05T10:00:00,10,3,
+TKT034,C034,Delivery,Critical,Resolved,2026-10-06T10:00:00,11,6,Synthetic support ticket number 34
+TKT035,C035,Product,Critical,Resolved,2026-10-07T10:00:00,-2,5,Synthetic support ticket number 35
+TKT036,C036,Billing,Critical,Closed,invalid-date,13,,Synthetic support ticket number 36
+TKT037,C037,Technical,Critical,Waiting,2026-10-09T10:00:00,2,2,Synthetic support ticket number 37
+TKT038,C038,Account,Unknown,Closed,2026-10-10T10:00:00,3,3,Synthetic support ticket number 38
+TKT039,C039,,Critical,Closed,2026-10-11T10:00:00,4,4,Synthetic support ticket number 39
+TKT001,C999,Product,Critical,Closed,2026-10-12T10:00:00,5,5,Duplicate ticket ID test

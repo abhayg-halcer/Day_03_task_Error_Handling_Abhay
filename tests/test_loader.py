@@ -165,3 +165,24 @@ def test_filesystem_error_is_handled(tmp_path: Path, monkeypatch) -> None:
 
     with pytest.raises(FileAccessError, match="filesystem error"):
         loader.load_csv(csv_file)
+
+
+@pytest.mark.parametrize(
+    "csv_content",
+    [
+        "product,quantity,price,price\nLaptop,2,50,900\n",
+        "product,quantity,price,PRICE\nLaptop,2,50,900\n",
+        "product,quantity,price, PRICE \nLaptop,2,50,900\n",
+    ],
+)
+def test_loader_rejects_duplicate_normalized_headers(
+    tmp_path: Path,
+    csv_content: str,
+) -> None:
+    from data_toolkit.exceptions import SchemaValidationError
+
+    csv_file = tmp_path / "duplicate_headers.csv"
+    csv_file.write_text(csv_content, encoding="utf-8")
+
+    with pytest.raises(SchemaValidationError, match="duplicate"):
+        load_csv(csv_file)

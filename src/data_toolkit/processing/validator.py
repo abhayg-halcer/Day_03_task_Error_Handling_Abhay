@@ -7,11 +7,28 @@ from data_toolkit.exceptions import DataValidationError, SchemaValidationError
 
 
 def validate_columns(columns: list[str] | None) -> None:
-    """Ensure all required columns are present."""
+    """Validate required columns and reject duplicate normalized headers."""
     if not columns:
         raise SchemaValidationError("CSV file is empty or has no header.")
 
-    normalized = {column.strip().lower() for column in columns}
+    normalized_columns = [column.strip().lower() for column in columns]
+
+    if len(normalized_columns) != len(set(normalized_columns)):
+        seen: set[str] = set()
+        duplicates: set[str] = set()
+
+        for column in normalized_columns:
+            if column in seen:
+                duplicates.add(column)
+            seen.add(column)
+
+        duplicate_names = ", ".join(sorted(duplicates))
+        raise SchemaValidationError(
+            f"CSV contains duplicate column(s) after normalization: "
+            f"{duplicate_names}."
+        )
+
+    normalized = set(normalized_columns)
     missing = set(REQUIRED_COLUMNS) - normalized
 
     if missing:

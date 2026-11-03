@@ -31,3 +31,17 @@ def test_missing_columns() -> None:
 def test_invalid_rows(row: dict[str, str]) -> None:
     with pytest.raises(DataValidationError):
         validate_row(row, 2)
+
+
+@pytest.mark.parametrize(
+    "columns",
+    [
+        ["product", "quantity", "price", "price"],
+        ["product", "quantity", "price", "PRICE"],
+        ["product", "quantity", "price", " PRICE "],
+        ["product", "quantity", "price", "Price "],
+    ],
+)
+def test_duplicate_normalized_columns(columns: list[str]) -> None:
+    with pytest.raises(SchemaValidationError, match="duplicate"):
+        validate_columns(columns)
